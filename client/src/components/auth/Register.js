@@ -1,8 +1,11 @@
-import React,{Fragment,useState} from 'react';
+import React,{Fragment,useState, Component} from 'react';
+import {connect } from 'react-redux';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-
- const Register = () => {
+import {setAlert } from '../../actions/alert';
+import PropTypes from 'prop-types';
+//import propTypes from 'prop-types';
+ const Register = ({setAlert}) => {
      const [formData,setFormData]=useState({
          name: '',
          email: '',
@@ -17,9 +20,9 @@ import {Link} from 'react-router-dom';
      const onSubmit=async e=>{
          e.preventDefault();
          if(password!==password2){
-             console.log('Password do not match');
+             setAlert('Password do not match','danger');
          }else{
-             
+            console.log('success') 
          }
      };
 
@@ -75,6 +78,10 @@ import {Link} from 'react-router-dom';
         Already have an account? <Link to="/login">Sign In</Link>
       </p>
         </Fragment>
-    )
-}
-export default Register;
+    );
+};
+
+ Register.propTypes={
+  setAlert:PropTypes.func.isRequired
+};
+export default connect(null, { setAlert })(Register);
