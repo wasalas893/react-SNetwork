@@ -9,6 +9,9 @@
      <li><Link to="/profiles">
        Developers
      </Link></li>
+     <li><Link to="/posts">
+       Posts
+     </Link></li>
      <li><Link to="/dashboard">
        <span className="hide-sm">Dashboard</span>
      </Link></li>
@@ -21,7 +24,7 @@
    );
    const guestLinks=(
     <ul>
-    <li><Link to="/profiles">
+     <li><Link to="/profiles">
        Developers
      </Link></li>
     <li><Link to="/register">Register</Link></li>
